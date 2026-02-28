@@ -1,0 +1,32 @@
+.copyright {
+  position: fixed;
+  bottom: 1.2rem;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.copyright-message {
+  font-size: 1rem;
+  color: #e2e2e2;
+  font-weight: 500;
+  margin: 0 0 0.3rem 0;
+}
+
+.copyright-legal {
+  font-size: 0.7rem;
+  color: #878787;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media screen and (max-width: 660px) {
+  .copyright-message {
+    font-size: 0.9rem;
+  }
+
+  .copyright-legal {
+    font-size: 0.65rem;
+  }
+}

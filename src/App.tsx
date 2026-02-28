@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { useCountdown } from "./hooks/useCountdown";
+import { TARGET_LABEL, CLOCK_TITLE } from "./constants/targetDate";
+import CountdownClock from "./components/CountdownClock";
+import MotivationMessage from "./components/MotivationMessage";
+import Copyright from "./components/Copyright";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const { timeLeft, isFinished } = useCountdown();
+
+  const copyTime = () => {
+    const text = isFinished
+      ? "수능이 시작되었습니다. 지금까지의 노력이 결실을 맺길!"
+      : `${TARGET_LABEL}까지 ${timeLeft.days}일 ${timeLeft.hours}시간 ${timeLeft.minutes}분 ${timeLeft.seconds}초 남았습니다.`;
+    navigator.clipboard.writeText(text);
+    alert("복사되었습니다!");
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="clock-container">
+        <h1 className="clock-title">{CLOCK_TITLE}</h1>
+        <p className="clock-subtitle">{TARGET_LABEL}</p>
+        <CountdownClock timeLeft={timeLeft} />
+        <MotivationMessage />
+        {isFinished && <h2>수능이 시작되었습니다.</h2>}
+        <button onClick={copyTime}>시간 복사하기</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Copyright />
     </>
-  )
+  );
 }
-
-export default App
