@@ -1,6 +1,6 @@
 import "./App.css";
 import { useCountdown } from "./hooks/useCountdown";
-import { TARGET_LABEL, CLOCK_TITLE } from "./constants/targetDate";
+import { TARGET_LABEL, TARGET_LABEL_SHORT, CLOCK_TITLE } from "./constants/targetDate";
 import CountdownClock from "./components/CountdownClock";
 import MotivationMessage from "./components/MotivationMessage";
 import Copyright from "./components/Copyright";
@@ -11,7 +11,7 @@ export default function App() {
   const copyTime = () => {
     const text = isFinished
       ? "수능이 시작되었습니다. 지금까지의 노력이 결실을 맺길!"
-      : `${TARGET_LABEL}까지 ${timeLeft.days}일 ${timeLeft.hours}시간 ${timeLeft.minutes}분 ${timeLeft.seconds}초 남았습니다.`;
+      : `${TARGET_LABEL_SHORT}까지 ${timeLeft.days}일 ${timeLeft.hours}시간 ${timeLeft.minutes}분 ${timeLeft.seconds}초 남았습니다.`;
     navigator.clipboard.writeText(text);
     alert("복사되었습니다!");
   };
