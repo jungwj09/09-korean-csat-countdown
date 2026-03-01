@@ -18,7 +18,7 @@ export default function App() {
   const { selectedYear, changeYear } = useYearParam();
 
   const targetDate = useMemo(() => {
-    const csatYear = getCsatYear(2000 + selectedYear); // 2009 + 18 = 2027 ✓
+    const csatYear = getCsatYear(2000 + selectedYear);
     return getCsatDate(csatYear);
   }, [selectedYear]);
 
@@ -35,9 +35,9 @@ export default function App() {
   return (
     <>
       <div className="clock-container">
+        <YearSelector selectedYear={selectedYear} onChange={changeYear} />
         <h1 className="clock-title">{CLOCK_TITLE(selectedYear)}</h1>
         <p className="clock-subtitle">{TARGET_LABEL(targetDate)}</p>
-        <YearSelector selectedYear={selectedYear} onChange={changeYear} />
         <CountdownClock timeLeft={timeLeft} />
         <MotivationMessage />
         {isFinished && <h2>수능이 시작되었습니다.</h2>}
