@@ -32,11 +32,15 @@ export default function App() {
     alert("복사되었습니다!");
   };
 
+  const { team, rest } = CLOCK_TITLE(selectedYear);
+
   return (
     <>
       <div className="clock-container">
         <YearSelector selectedYear={selectedYear} onChange={changeYear} />
-        <h1 className="clock-title">{CLOCK_TITLE(selectedYear)}</h1>
+        <h1 className="clock-title">
+          {team}<br className="title-break" />{rest}
+        </h1>
         <p className="clock-subtitle">{TARGET_LABEL(targetDate)}</p>
         <CountdownClock timeLeft={timeLeft} />
         <MotivationMessage />

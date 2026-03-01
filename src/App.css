@@ -27,6 +27,10 @@
   word-break: keep-all;
 }
 
+.clock-title .title-break {
+  display: none;
+}
+
 .clock-subtitle {
   font-size: clamp(0.8rem, 3.5vw, 1rem);
   color: rgba(255, 255, 255, 0.45);
@@ -44,6 +48,10 @@
   .clock-title {
     font-size: clamp(1.6rem, 8vw, 2.2rem);
     margin-bottom: 0.4rem;
+  }
+
+  .clock-title .title-break {
+    display: block;
   }
 
   .clock-subtitle {

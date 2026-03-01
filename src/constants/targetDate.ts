@@ -7,7 +7,6 @@ export function getCsatDate(year: number): Date {
   return new Date(year, 10, thirdThursday, 8, 10, 0);
 }
 
-// 출생연도(4자리) -> 수능연도: 2008 → 2026, 2009 → 2027, ...
 export function getCsatYear(birthYear: number): number {
   return birthYear + 18;
 }
@@ -23,7 +22,7 @@ function getSubjectParticle(n: number): string {
 export const CLOCK_TITLE = (birthYear: number) => {
   const teamNum = String(birthYear).padStart(2, "0");
   const particle = getSubjectParticle(birthYear);
-  return `TEAM${teamNum}${particle} 수능보는 날까지`;
+  return { team: `TEAM${teamNum}${particle}`, rest: " 수능보는 날까지" };
 };
 
 export const TARGET_LABEL = (csatDate: Date) => {
