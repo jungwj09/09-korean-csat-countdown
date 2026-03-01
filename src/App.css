@@ -1,44 +1,52 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  padding-top: 20vh;
+  justify-content: center;
 }
 
 .clock-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 2rem 0;
+  box-sizing: border-box;
+  gap: 0;
 }
 
 .clock-title {
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
+  font-size: clamp(1.8rem, 7vw, 3.2rem);
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+  word-break: keep-all;
 }
 
 .clock-subtitle {
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 3.5vw, 1rem);
   color: rgba(255, 255, 255, 0.45);
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.5rem 0;
   white-space: pre-line;
-  line-height: 1.8;
-}
-
-.clock-container button {
-  margin-top: 1.5rem;
+  line-height: 1.6;
 }
 
 @media screen and (max-width: 660px) {
+  .clock-container {
+    padding: 1.5rem 0;
+    gap: 0;
+  }
+
   .clock-title {
-    font-size: 1.9rem;
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
+    margin-bottom: 0.4rem;
   }
 
   .clock-subtitle {
-    font-size: 0.8rem;
+    margin-bottom: 1.2rem;
   }
 }
